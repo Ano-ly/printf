@@ -15,8 +15,8 @@ int specify(char spec, va_list values);
 
 int _printf(const char *format, ...)
 {
-	int i;
-	int count;
+	int i = 0;
+	int count = 0;
 	char cursor;
 	char spec;
 	va_list values;
@@ -46,15 +46,16 @@ int _printf(const char *format, ...)
 		}
 
 	}
+	va_end(values);
 	return (count);
 }
 
 /**
- * specify - handles the specifiers c, s and %
- * @spec: format specifier?
+ * specify - handles the specifiers c, s, %, d, and i
+ * @spec: format specifier
  * @values: list of arguments
  *
- * Definition - handles format specifiers c, s and %
+ * Definition - handles format specifiers c, s, %, d, and i
  * Return: count of printed characters
 */
 
@@ -62,16 +63,14 @@ int specify(char spec, va_list values)
 {
 	char *value_str;
 	int j;
-	int sub_count;
-
-	sub_count = 0;
+	int sub_count = 0;
 
 	if (spec == 'c')
 	{
 		_putchar(va_arg(values, int));
 		sub_count++;
 	}
-	if (spec == 's')
+	else if (spec == 's')
 	{
 		value_str = va_arg(values, char *);
 		if (value_str != NULL)
@@ -85,10 +84,31 @@ int specify(char spec, va_list values)
 			}
 		}
 	}
-	if (spec == '%')
+	else if (spec == '%')
 	{
 		_putchar('%');
 		sub_count++;
+	}
+	else if (spec == 'd'|| spec == 'i')
+	{
+		int num = va_arg(values, int);
+
+		int digits_printed = 0;
+		  if (num < 0)
+
+    		  {
+			  _putchar('-');
+			  sub_count++;
+			  num = -num;
+		  }
+		  if (num / 10 != 0)
+		  {
+			  digits_printed += specify(spec, values);
+		  }
+		  _putchar('0' + (num % 10));
+		  sub_count++;
+		  digits_printed++;
+		  return digits_printed;
 	}
 	return (sub_count);
 }
