@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 	char spec;
 	va_list values;
 
+	count = 0;
+
 	va_start(values, format);
 
 	if (format != NULL)
@@ -32,6 +34,7 @@ int _printf(const char *format, ...)
 			{
 				_putchar(cursor);
 				cursor++;
+				count++;
 			}
 			else
 			{
@@ -71,12 +74,15 @@ int specify(char spec, va_list values)
 	if (spec == 's')
 	{
 		value_str = va_arg(values, char *);
-		j = 0;
-		while (value_str[j] != '\0')
+		if (value_str != NULL)
 		{
-			_putchar(value_str[j]);
-			sub_count++;
-			j++;
+			j = 0;
+			while (value_str[j] != '\0')
+			{
+				_putchar(value_str[j]);
+				sub_count++;
+				j++;
+			}
 		}
 	}
 	if (spec == '%')
