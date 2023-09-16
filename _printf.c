@@ -87,6 +87,8 @@ int specify(char spec, va_list values)
 			}
 		}
 	}
+	if (spec == 'b')
+		sub_count += _malloc(values);
 	if (spec == '%')
 	{
 		_putchar('%');
