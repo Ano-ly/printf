@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int specify(char spec, va_list values);
 
@@ -46,6 +47,7 @@ int _printf(const char *format, ...)
 		}
 
 	}
+	printf("%d", count);
 	return (count);
 }
 
@@ -90,5 +92,6 @@ int specify(char spec, va_list values)
 		_putchar('%');
 		sub_count++;
 	}
+	/*printf("%d", sub_count);*/
 	return (sub_count);
 }
