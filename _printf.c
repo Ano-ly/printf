@@ -43,22 +43,24 @@ int _printf(const char *format, ...)
 			{
 				spec = format[i + 1];
 				count += specify(spec, values);
+				/*printf("%d", count);*/
 				i++;
 			}
 			i++;
 		}
 
 	}
-	/*printf("%d", count);*/
+	va_end(values);
+	/*printf("cCount main: %d", count);*/
 	return (count);
 }
 
 /**
- * specify - handles the specifiers c, s and %
- * @spec: format specifier?
+ * specify - handles the specifiers c, s, %, d, and i
+ * @spec: format specifier
  * @values: list of arguments
  *
- * Definition - handles format specifiers c, s and %
+ * Definition - handles format specifiers c, s, %, d, and i
  * Return: count of printed characters
 */
 
@@ -66,9 +68,7 @@ int specify(char spec, va_list values)
 {
 	char *value_str;
 	int j;
-	int sub_count;
-
-	sub_count = 0;
+	int sub_count = 0;
 
 	if (spec == 'c')
 	{
@@ -100,5 +100,27 @@ int specify(char spec, va_list values)
 		sub_count++;
 	}
 	/*printf("%d", sub_count);*/
+	if (spec == 'd' || spec == 'i')
+	{
+		int num = va_arg(values, int);
+
+		int digits_printed = 0;
+
+		if (num < 0)
+
+		{
+			_putchar('-');
+			sub_count++;
+			num = -num;
+		}
+		if (num / 10 != 0)
+		{
+			digits_printed += specify(spec, values);
+		}
+		_putchar('0' + (num % 10));
+		sub_count++;
+		digits_printed++;
+		return (digits_printed);
+	}
 	return (sub_count);
 }

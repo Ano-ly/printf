@@ -3,6 +3,6 @@
 
 int main(void)
 {
-	_printf("I am the de%bst of w%bor %b lds", 32, 100, 50);
+	_printf("%b", 128);
 	return (0);
 }

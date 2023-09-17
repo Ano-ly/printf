@@ -35,7 +35,8 @@ int _malloc(va_list num_list)
 		else
 			break;
 	}
-	buffer = malloc(sizeof(char) * (n + 1));
+	buffer = malloc(sizeof(char) * n);
+	/*printf("%d", n + 1);*/
 	count = fill_buffer(buffer, num, n);
 	return (count);
 }
@@ -69,7 +70,9 @@ int fill_buffer(char *buffer, int num, int n)
 		num = quotient;
 		i++;
 	}
+	/*printf("%d", n);*/
 	count = print_rev_buffer(buffer, n);
+	/*printf("COunt: %d", count);*/
 	return (count);
 }
 
@@ -97,7 +100,7 @@ int print_rev_buffer(char *buffer, int n)
 		i--;
 		sub2_count++;
 	}
-	free(buffer);
 	/*printf("last funct sub2count: %d", sub2_count);*/
+	free(buffer);
 	return (sub2_count);
 }
