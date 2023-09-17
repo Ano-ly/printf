@@ -47,11 +47,8 @@ int _printf(const char *format, ...)
 		}
 
 	}
-<<<<<<< HEAD
 	printf("%d", count);
-=======
 	va_end(values);
->>>>>>> origin/main
 	return (count);
 }
 
@@ -97,26 +94,27 @@ int specify(char spec, va_list values)
 		sub_count++;
 	}
 	/*printf("%d", sub_count);*/
-	else if (spec == 'd'|| spec == 'i')
+	else if (spec == 'd' || spec == 'i')
 	{
 		int num = va_arg(values, int);
 
 		int digits_printed = 0;
-		  if (num < 0)
 
-    		  {
-			  _putchar('-');
-			  sub_count++;
-			  num = -num;
-		  }
-		  if (num / 10 != 0)
-		  {
-			  digits_printed += specify(spec, values);
-		  }
-		  _putchar('0' + (num % 10));
-		  sub_count++;
-		  digits_printed++;
-		  return digits_printed;
+		if (num < 0)
+
+		{
+			_putchar('-');
+			sub_count++;
+			num = -num;
+		}
+		if (num / 10 != 0)
+		{
+			digits_printed += specify(spec, values);
+		}
+		_putchar('0' + (num % 10));
+		sub_count++;
+		digits_printed++;
+		return (digits_printed);
 	}
 	return (sub_count);
 }
