@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		}
 
 	}
-	printf("%d", count);
+	/*printf("%d", count);*/
 	va_end(values);
 	return (count);
 }
