@@ -94,5 +94,6 @@ int print_rev_buffer(char *buffer, int n)
 		i--;
 		sub2_count++;
 	}
+	free(buffer);
 	return (sub2_count);
 }
