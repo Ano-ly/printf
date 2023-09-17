@@ -91,6 +91,8 @@ int print_rev_buffer(char *buffer, int n)
 	int i;
 	int sub2_count;
 
+	sub2_count = 0;
+
 	i = n - 1;
 	while (i >= 0)
 	{

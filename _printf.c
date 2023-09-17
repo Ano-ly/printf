@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 int specify(char spec, va_list values);
 
@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 			{
 				spec = format[i + 1];
 				count += specify(spec, values);
-				printf("%d", count);
+				/*printf("%d", count);*/
 				i++;
 			}
 			i++;
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 
 	}
 	va_end(values);
-	printf("cCount main: %d", count);
+	/*printf("cCount main: %d", count);*/
 	return (count);
 }
 
