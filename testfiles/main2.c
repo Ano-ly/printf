@@ -3,6 +3,6 @@
 
 int main(void)
 {
-	_printf("%b\ntry", 5000000);
+	_printf("%b", 128);
 	return (0);
 }

@@ -16,13 +16,14 @@ int specify(char spec, va_list values);
 
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int count = 0;
+	int i;
+	int count;
 	char cursor;
 	char spec;
 	va_list values;
 
 	count = 0;
+	i = 0;
 
 	va_start(values, format);
 
@@ -41,14 +42,15 @@ int _printf(const char *format, ...)
 			{
 				spec = format[i + 1];
 				count += specify(spec, values);
+				printf("%d", count);
 				i++;
 			}
 			i++;
 		}
 
 	}
-	/*printf("%d", count);*/
 	va_end(values);
+	printf("cCount main: %d", count);
 	return (count);
 }
 
@@ -72,7 +74,7 @@ int specify(char spec, va_list values)
 		_putchar(va_arg(values, int));
 		sub_count++;
 	}
-	else if (spec == 's')
+	if (spec == 's')
 	{
 		value_str = va_arg(values, char *);
 		if (value_str != NULL)
@@ -88,13 +90,13 @@ int specify(char spec, va_list values)
 	}
 	if (spec == 'b')
 		sub_count += _malloc(values);
-	else if (spec == '%')
+	if (spec == '%')
 	{
 		_putchar('%');
 		sub_count++;
 	}
 	/*printf("%d", sub_count);*/
-	else if (spec == 'd' || spec == 'i')
+	if (spec == 'd' || spec == 'i')
 	{
 		int num = va_arg(values, int);
 
