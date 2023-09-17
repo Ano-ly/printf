@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 int specify(char spec, va_list values);
 
@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 	va_list values;
 
 	count = 0;
+	i = 0;
 
 	va_start(values, format);
 
@@ -31,6 +32,7 @@ int _printf(const char *format, ...)
 		while (format[i] != '\0')
 		{
 			cursor = format[i];
+			/*printf("Cursor: %c\n", cursor);*/
 			if (cursor != '%')
 			{
 				_putchar(cursor);
@@ -47,7 +49,7 @@ int _printf(const char *format, ...)
 		}
 
 	}
-	printf("%d", count);
+	/*printf("%d", count);*/
 	return (count);
 }
 
@@ -88,7 +90,10 @@ int specify(char spec, va_list values)
 		}
 	}
 	if (spec == 'b')
+	{
 		sub_count += _malloc(values);
+		/*printf("Sub_count: %d", sub_count);*/
+	}
 	if (spec == '%')
 	{
 		_putchar('%');

@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
+/*#include <stdio.h>*/
 
 /**
  * _malloc - allocates suitable memory space for 'binary string'
@@ -87,6 +88,8 @@ int print_rev_buffer(char *buffer, int n)
 	int i;
 	int sub2_count;
 
+	sub2_count = 0;
+
 	i = n - 1;
 	while (i >= 0)
 	{
@@ -94,5 +97,7 @@ int print_rev_buffer(char *buffer, int n)
 		i--;
 		sub2_count++;
 	}
+	free(buffer);
+	/*printf("last funct sub2count: %d", sub2_count);*/
 	return (sub2_count);
 }
