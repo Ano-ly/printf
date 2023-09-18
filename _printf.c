@@ -95,6 +95,8 @@ int specify(char spec, va_list values)
 		sub_count += _malloc2(values, 10);
 	if (spec == 'u')
 		sub_count += _malloc(values, 10);
+	if (spec == 'o')
+		sub_count += _malloc(values, 8);
 
 	if (spec == '%')
 	{
