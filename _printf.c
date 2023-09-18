@@ -97,7 +97,10 @@ int specify(char spec, va_list values)
 		sub_count += _malloc(values, 10);
 	if (spec == 'o')
 		sub_count += _malloc(values, 8);
-
+	if (spec == 'x')
+		sub_count += _malloc3(values, 16, 'a');
+	if (spec == 'X')
+		sub_count += _malloc3(values, 16, 'A');
 	if (spec == '%')
 	{
 		_putchar('%');

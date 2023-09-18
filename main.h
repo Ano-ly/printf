@@ -11,4 +11,7 @@ int _malloc2(va_list num_list, int base);
 int fill_buffer(char *buffer, int num, int n, int base);
 int print_rev_buffer(char *buffer, int n);
 
+int _malloc3(va_list num_list, int base, char caps);
+int fill_buffer_hexa(char *buffer, int num, int n, int base, char caps);
+
 #endif
