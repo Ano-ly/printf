@@ -91,7 +91,7 @@ int specify(char spec, va_list values)
 		sub_count += _malloc(values, 2);
 	}
 
-	if (spec == 'd')
+	if (spec == 'd' || spec == 'i')
 		sub_count += _malloc2(values, 10);
 	if (spec == 'u')
 		sub_count += _malloc(values, 10);
