@@ -15,5 +15,7 @@ int _malloc3(va_list num_list, int base, char caps);
 int fill_buffer_hexa(char *buffer, int num, int n, int base, char caps);
 
 int rev_string(va_list num_list);
+int rot13(va_list num_list);
+int _strlen(char *str);
 
 #endif

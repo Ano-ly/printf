@@ -20,7 +20,7 @@ int rev_string(va_list num_list)
 	buffer = va_arg(num_list, char *);
 	if (buffer != NULL)
 	{
-		while(buffer[n] != '\0')
+		while (buffer[n] != '\0')
 			n++;
 		n--;
 		while (n >= 0)
