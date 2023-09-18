@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-/*#include <stdio.h>*/
+#include <stdio.h>
 
 int specify(char spec, va_list values);
 
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		while (format[i] != '\0')
 		{
 			cursor = format[i];
-			/*printf("Cursor: %c\n", cursor);*/
+			printf("Cursor: %c\n", cursor);
 			if (cursor != '%')
 			{
 				_putchar(cursor);
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			{
 				spec = format[i + 1];
 				count += specify(spec, values);
-				/*printf("%d", count);*/
+				printf("%d", count);
 				i++;
 			}
 			i++;
@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 
 	}
 	va_end(values);
-	/*printf("cCount main: %d", count);*/
+	printf("cCount main: %d", count);
 	return (count);
 }
 
@@ -92,48 +92,17 @@ int specify(char spec, va_list values)
 	if (spec == 'b')
 	{
 		sub_count += _malloc(values, 2);
-		/*printf("Sub_count: %d", sub_count);*/
+		printf("Sub_count: %d", sub_count);
 	}
-
-	/* My code for handling d; basically just a function call*/
 
 	if (spec == 'd')
 		sub_count += _malloc2(values, 10);
-
-	/* ends here*/
 
 	if (spec == '%')
 	{
 		_putchar('%');
 		sub_count++;
 	}
-	/*printf("%d", sub_count);*/
-
-	/*Comment this out, then commit and push to main*/
-
-	if (spec == 'd' || spec == 'i')
-	{
-		int num = va_arg(values, int);
-
-		int digits_printed = 0;
-
-		if (num < 0)
-
-		{
-			_putchar('-');
-			sub_count++;
-			num = -num;
-		}
-		if (num / 10 != 0)
-		{
-			digits_printed += specify(spec, values);
-		}
-		_putchar('0' + (num % 10));
-		sub_count++;
-		digits_printed++;
-		return (digits_printed);
-	}
-
-	/* Commenting out ends here*/
+	printf("%d", sub_count);
 	return (sub_count);
 }

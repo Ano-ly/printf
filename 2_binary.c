@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-/*#include <stdio.h>*/
+#include <stdio.h>
 
 /**
  * _malloc - allocates suitable memory space for 'binary string'
@@ -37,11 +37,10 @@ int _malloc(va_list num_list, int base)
 			break;
 	}
 	buffer = malloc(sizeof(char) * n);
-	/*printf("%d", n + 1);*/
+	printf("%d", n + 1);
 	count = fill_buffer(buffer, num, n, base);
 	return (count);
 }
-/*New function for handling %d starts here:*/
 
 /**
  * _malloc2 - allocates suitable memory space for 'binary string'
@@ -86,12 +85,10 @@ int _malloc2(va_list num_list, int base)
 			break;
 	}
 	buffer = malloc(sizeof(char) * n);
-	/*printf("%d", n + 1);*/
+	printf("%d", n + 1);
 	count += fill_buffer(buffer, num, n, base);
 	return (count);
 }
-
-/* New function ends here. */
 
 /* Note that the definitions of functions _malloc and */
 /* fill_buffer now have new parameter, ''base'*/
@@ -127,9 +124,9 @@ int fill_buffer(char *buffer, int num, int n, int base)
 		num = quotient;
 		i++;
 	}
-	/*printf("%d", n);*/
+	printf("%d", n);
 	count = print_rev_buffer(buffer, n);
-	/*printf("COunt: %d", count);*/
+	printf("COunt: %d", count);
 	return (count);
 }
 
@@ -157,7 +154,7 @@ int print_rev_buffer(char *buffer, int n)
 		i--;
 		sub2_count++;
 	}
-	/*printf("last funct sub2count: %d", sub2_count);*/
+	printf("last funct sub2count: %d", sub2_count);
 	free(buffer);
 	return (sub2_count);
 }
