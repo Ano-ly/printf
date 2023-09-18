@@ -6,12 +6,13 @@
 /**
  * _malloc - allocates suitable memory space for 'binary string'
  * @num_list: list of arguments
+ * @base: conversion base
  * Definition - determines how many bytes of memory should be
  * allocated, and performs the memory allocation.
  * Return: count of printed characters
 */
 
-int _malloc(va_list num_list)
+int _malloc(va_list num_list, int base)
 {
 	int n;
 	unsigned int num;
@@ -28,7 +29,7 @@ int _malloc(va_list num_list)
 		pow = 1;
 		for (i = 0; i < n; i++)
 		{
-			pow *= 2;
+			pow *= base;
 		}
 		if (pow <= num)
 			n++;
@@ -37,22 +38,78 @@ int _malloc(va_list num_list)
 	}
 	buffer = malloc(sizeof(char) * n);
 	/*printf("%d", n + 1);*/
-	count = fill_buffer(buffer, num, n);
+	count = fill_buffer(buffer, num, n, base);
+	return (count);
+}
+/*New function for handling %d starts here:*/
+
+/**
+ * _malloc2 - allocates suitable memory space for 'binary string'
+ * @num_list: list of arguments
+ * @base: conversion base
+ *
+ * Definition - determines how many bytes of memory should be
+ * allocated, and performs the memory allocation.
+ * Return: count of printed characters
+*/
+
+int _malloc2(va_list num_list, int base)
+{
+	int n;
+	int num;
+	char *buffer;
+	int pow;
+	int i;
+	int count;
+
+	n = 0;
+	count = 0;
+	num = va_arg(num_list, int);
+
+	if (num < 0)
+	{
+		_putchar('-');
+		num = -num;
+		count++;
+	}
+
+	while (1)
+	{
+		pow = 1;
+		for (i = 0; i < n; i++)
+		{
+			pow *= base;
+		}
+		if (pow <= num)
+			n++;
+		else
+			break;
+	}
+	buffer = malloc(sizeof(char) * n);
+	/*printf("%d", n + 1);*/
+	count += fill_buffer(buffer, num, n, base);
 	return (count);
 }
 
+/* New function ends here. */
+
+/* Note that the definitions of functions _malloc and */
+/* fill_buffer now have new parameter, ''base'*/
+
+
 /**
  * fill_buffer - fills up previously allocated memory space
- * with binary digits
+ * with binary, decimal, etc. digits
  * @buffer: memory space to be filled up
  * @num: number to be converted to binary
  * @n: size of memory space
+ * @base: conversion base
  *
  * Definition - converts num to binary number and fills buffer
  * Return: count of printed characters
 */
 
-int fill_buffer(char *buffer, int num, int n)
+int fill_buffer(char *buffer, int num, int n, int base)
 {
 	int quotient;
 	int rem;
@@ -64,8 +121,8 @@ int fill_buffer(char *buffer, int num, int n)
 
 	while (quotient != 0)
 	{
-		quotient = num / 2;
-		rem = num % 2;
+		quotient = num / base;
+		rem = num % base;
 		buffer[i] = rem + '0';
 		num = quotient;
 		i++;

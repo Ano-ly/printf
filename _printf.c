@@ -85,21 +85,32 @@ int specify(char spec, va_list values)
 			{
 				_putchar(value_str[j]);
 				sub_count++;
-				j++;
+			j++;
 			}
 		}
 	}
 	if (spec == 'b')
 	{
-		sub_count += _malloc(values);
+		sub_count += _malloc(values, 2);
 		/*printf("Sub_count: %d", sub_count);*/
 	}
+
+	/* My code for handling d; basically just a function call*/
+
+	if (spec == 'd')
+		sub_count += _malloc2(values, 10);
+
+	/* ends here*/
+
 	if (spec == '%')
 	{
 		_putchar('%');
 		sub_count++;
 	}
 	/*printf("%d", sub_count);*/
+
+	/*Comment this out, then commit and push to main*/
+
 	if (spec == 'd' || spec == 'i')
 	{
 		int num = va_arg(values, int);
@@ -122,5 +133,7 @@ int specify(char spec, va_list values)
 		digits_printed++;
 		return (digits_printed);
 	}
+
+	/* Commenting out ends here*/
 	return (sub_count);
 }
