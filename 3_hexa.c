@@ -39,6 +39,8 @@ int _malloc3(va_list num_list, int base, char caps)
 			break;
 	}
 	buffer = malloc(sizeof(char) * n);
+	if (buffer == NULL)
+		return (0);
 	count = fill_buffer_hexa(buffer, num, n, base, caps);
 	return (count);
 }

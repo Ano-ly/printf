@@ -38,6 +38,8 @@ int _malloc(va_list num_list, int base)
 			break;
 	}
 	buffer = malloc(sizeof(char) * n);
+	if (buffer == NULL)
+		return (0);
 	count = fill_buffer(buffer, num, n, base);
 	return (count);
 }
@@ -86,6 +88,8 @@ int _malloc2(va_list num_list, int base)
 			break;
 	}
 	buffer = malloc(sizeof(char) * n);
+	if (buffer == NULL)
+		return (0);
 	count += fill_buffer(buffer, num, n, base);
 	return (count);
 }
