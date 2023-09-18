@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		while (format[i] != '\0')
 		{
 			cursor = format[i];
-			printf("Cursor: %c\n", cursor);
+
 			if (cursor != '%')
 			{
 				_putchar(cursor);
@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 			{
 				spec = format[i + 1];
 				count += specify(spec, values);
-				printf("%d", count);
 				i++;
 			}
 			i++;
@@ -51,7 +50,6 @@ int _printf(const char *format, ...)
 
 	}
 	va_end(values);
-	printf("cCount main: %d", count);
 	return (count);
 }
 
@@ -92,7 +90,6 @@ int specify(char spec, va_list values)
 	if (spec == 'b')
 	{
 		sub_count += _malloc(values, 2);
-		printf("Sub_count: %d", sub_count);
 	}
 
 	if (spec == 'd')
@@ -103,6 +100,5 @@ int specify(char spec, va_list values)
 		_putchar('%');
 		sub_count++;
 	}
-	printf("%d", sub_count);
 	return (sub_count);
 }
