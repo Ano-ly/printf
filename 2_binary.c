@@ -22,14 +22,16 @@ int _malloc(va_list num_list, int base)
 
 	n = 0;
 	num = va_arg(num_list, unsigned int);
-
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	while (1)
 	{
 		pow = 1;
 		for (i = 0; i < n; i++)
-		{
 			pow *= base;
-		}
 		if (pow <= num)
 			n++;
 		else
@@ -62,21 +64,22 @@ int _malloc2(va_list num_list, int base)
 	n = 0;
 	count = 0;
 	num = va_arg(num_list, int);
-
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (num < 0)
 	{
 		_putchar('-');
 		num = -num;
 		count++;
 	}
-
 	while (1)
 	{
 		pow = 1;
 		for (i = 0; i < n; i++)
-		{
 			pow *= base;
-		}
 		if (pow <= num)
 			n++;
 		else
@@ -86,10 +89,6 @@ int _malloc2(va_list num_list, int base)
 	count += fill_buffer(buffer, num, n, base);
 	return (count);
 }
-
-/* Note that the definitions of functions _malloc and */
-/* fill_buffer now have new parameter, ''base'*/
-
 
 /**
  * fill_buffer - fills up previously allocated memory space
