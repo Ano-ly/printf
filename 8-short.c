@@ -4,13 +4,13 @@
 /*#include <stdio.h>*/
 
 /**
- * _malloc8 - allocates suitable memory space for 'short binary string'
- * @num_list: list of arguments
- * @base: conversion base
- * Definition - determines how many bytes of memory should be
- * allocated, and performs the memory allocation.
- * Return: count of printed characters
-*/
+  * _malloc8 - allocates suitable memory space for 'short binary string'
+  * @num_list: list of arguments
+  * @base: conversion base
+  * Definition - determines how many bytes of memory should be
+  * allocated, and performs the memory allocation.
+  * Return: count of printed characters
+  */
 
 int _malloc8(va_list num_list, int base)
 {
@@ -46,14 +46,14 @@ int _malloc8(va_list num_list, int base)
 }
 
 /**
- * _malloc9 - allocates suitable memory space for 'short binary string'
- * @num_list: list of arguments
- * @base: conversion base
- *
- * Definition - determines how many bytes of memory should be
- * allocated, and performs the memory allocation.
- * Return: count of printed characters
-*/
+  * _malloc9 - allocates suitable memory space for 'short binary string'
+  * @num_list: list of arguments
+  * @base: conversion base
+  
+  * Definition - determines how many bytes of memory should be
+  * allocated, and performs the memory allocation.
+  * Return: count of printed characters
+  */
 
 int _malloc9(va_list num_list, int base)
 {
@@ -100,16 +100,16 @@ int _malloc9(va_list num_list, int base)
 }
 
 /**
- * fill_buffer_short - fills up previously allocated memory space
- * with short binary, decimal, etc. digits
- * @buffer: memory space to be filled up
- * @num: number to be converted to binary
- * @n: size of memory space
- * @base: conversion base
- *
- * Definition - converts num to binary number and fills buffer
- * Return: count of printed characters
-*/
+  * fill_buffer_short - fills up previously allocated memory space
+  * with short binary, decimal, etc. digits
+  * @buffer: memory space to be filled up
+  * @num: number to be converted to binary
+  * @n: size of memory space
+  * @base: conversion base
+  
+  * Definition - converts num to binary number and fills buffer
+  * Return: count of printed characters
+  */
 
 int fill_buffer_short(char *buffer, short int num, int n, int base)
 {
@@ -134,4 +134,3 @@ int fill_buffer_short(char *buffer, short int num, int n, int base)
 	count = print_rev_buffer(buffer, n);
 	return (count);
 }
-
