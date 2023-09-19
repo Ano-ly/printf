@@ -5,13 +5,13 @@
 int specify(char spec, va_list values);
 
 /**
- * _printf - custom printf function
- * @format: format string
- * @...: subsequent arguments
- *
- * Description - a custom printf function
- * Return: count of characters printed to stdout
-*/
+  * _printf - custom printf function
+  * @format: format string
+  * @...: subsequent arguments
+  
+  * Description - a custom printf function
+  * Return: count of characters printed to stdout
+  */
 
 int _printf(const char *format, ...)
 {
@@ -53,13 +53,13 @@ int _printf(const char *format, ...)
 }
 
 /**
- * specify - handles the specifiers c, s, %, d, and i
- * @spec: format specifier
- * @values: list of arguments
- *
- * Definition - handles format specifiers c, s, %, d, and i
- * Return: count of printed characters
-*/
+  * specify - handles the specifiers c, s, %, d, and i
+  * @spec: format specifier
+  * @values: list of arguments
+  *
+  * Definition - handles format specifiers c, s, %, d, and i
+  * Return: count of printed characters
+  */
 
 int specify(char spec, va_list values)
 {
