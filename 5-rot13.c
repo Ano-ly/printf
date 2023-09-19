@@ -4,11 +4,11 @@
 #include <stdarg.h>
 
 /**
- * rot13 - encodes a string in ROT13
- * @num_list: list of arguments
- * Description - encodes string to ROT13 using arrays, for loops and if block
- * Return: count of printed numbers
-*/
+  * rot13 - encodes a string in ROT13
+  * @num_list: list of arguments
+  * Description - encodes string to ROT13 using arrays, for loops and if block
+  * Return: count of printed numbers
+  */
 
 int rot13(va_list num_list)
 {
@@ -48,11 +48,11 @@ int rot13(va_list num_list)
 }
 
 /**
- * _strlen - computes the length of a string
- * @str: string whose length is to be computed
- * Description - computes length of string
- * Return: integer, length of string
-*/
+  * _strlen - computes the length of a string
+  * @str: string whose length is to be computed
+  * Description - computes length of string
+  * Return: integer, length of string
+  */
 
 int _strlen(char *str)
 {
