@@ -1,1 +1,1 @@
-A custom printf function(s)sssssss
+A custom printf function(s)
