@@ -12,7 +12,7 @@ int main(void)
 	_printf("Real printf - %X||%b||%i||%d||%x||%o||%u", 0, 0, 0, 0, 0,
 	0, 0);
 	_printf("\n%x||%X", 1234232, 1234232);
-	count = _printf("%R", "AB.CDEFGHIJKLMabcdefghijklm");
+	count = _printf("%R", "AB.CDE.FGH,IJKL;;;Mab::cdefghijklm");
 	printf("%d", count);
 	return (0);
 }
