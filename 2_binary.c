@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
+/*#include <stdio.h>*/
 
 /**
  * _malloc - allocates suitable memory space for 'binary string'
@@ -90,7 +91,8 @@ int _malloc2(va_list num_list, int base)
 	buffer = malloc(sizeof(char) * n);
 	if (buffer == NULL)
 		return (0);
-	count = fill_buffer(buffer, num, n, base);
+	count += fill_buffer(buffer, num, n, base);
+	/*printf("Upper function count: %d\n", count);*/
 
 	return (count);
 }
@@ -154,5 +156,6 @@ int print_rev_buffer(char *buffer, int n)
 		sub2_count++;
 	}
 	free(buffer);
+	/*printf("sub2_count: %d\n", sub2_count);*/
 	return (sub2_count);
 }

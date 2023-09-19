@@ -14,5 +14,7 @@ int main(void)
 	_printf("\n%x||%X", 1234232, 1234232);
 	count = _printf("%R", "AB.CDE.FGH,IJKL;;;Mab::cdefghijklm");
 	printf("%d", count);
+	count = _printf("\n\ni te%%%%sting:\nI am %i|| %i|| %i|| %d\n",-0x1f, 0x11, 022, -12);
+	printf("%d", count);
 	return (0);
 }

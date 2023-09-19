@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
+/*#include <stdio.h>*/
 
 int specify(char spec, va_list values);
 
@@ -8,7 +9,7 @@ int specify(char spec, va_list values);
   * _printf - custom printf function
   * @format: format string
   * @...: subsequent arguments
-  
+  *
   * Description - a custom printf function
   * Return: count of characters printed to stdout
   */
@@ -37,6 +38,7 @@ int _printf(const char *format, ...)
 				_putchar(cursor);
 				cursor++;
 				count++;
+				/*printf("Non-scount: %d\n", count);*/
 			}
 			else
 			{
