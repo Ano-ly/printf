@@ -6,7 +6,7 @@
  * @num_list: the list to be parsed
  * Description - prints a string in reverse
  * Return: count of printed characters
-*/
+ */
 
 int rev_string(va_list num_list)
 {
@@ -32,5 +32,3 @@ int rev_string(va_list num_list)
 	}
 	return (count);
 }
-
-
