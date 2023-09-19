@@ -3,7 +3,6 @@
 #include <stdlib.h>
 /*#include <stdio.h>*/
 
-int specify(char spec, va_list values);
 
 /**
   * _printf - custom printf function
@@ -21,6 +20,7 @@ int _printf(const char *format, ...)
 	char cursor;
 	char spec;
 	va_list values;
+	_struct res_struct;
 
 	count = 0;
 	i = 0;
@@ -43,8 +43,11 @@ int _printf(const char *format, ...)
 			else
 			{
 				spec = format[i + 1];
-				count += specify(spec, values);
+				res_struct = specify(format, i + 1, spec, values);
+				count += res_struct.count;
 				i++;
+				if (res_struct.flag_true != 0)
+					i++;
 			}
 			i++;
 		}
@@ -58,16 +61,22 @@ int _printf(const char *format, ...)
   * specify - handles the specifiers c, s, %, d, and i
   * @spec: format specifier
   * @values: list of arguments
+  * @str: format string
+  * @spec_loc: index of format specifier
   *
   * Definition - handles format specifiers c, s, %, d, and i
-  * Return: count of printed characters
+  * Return: structure count of printed characters and flag_true
   */
 
-int specify(char spec, va_list values)
+_struct specify(const char *str, int spec_loc, char spec, va_list values)
 {
 	char *value_str;
 	int j;
 	int sub_count = 0;
+	struct _struct _specify;
+
+
+	int flag = 0;
 
 	if (spec == 'c')
 	{
@@ -87,6 +96,14 @@ int specify(char spec, va_list values)
 			j++;
 			}
 		}
+	}
+	if (str[spec_loc] == 'l')
+	{
+		flag = longfunction(spec_loc, str, values);
+		/*printf(" /%d /", flag);*/
+
+		if (flag != 0)
+			sub_count += flag;
 	}
 	if (spec == 'b')
 		sub_count += _malloc(values, 2);
@@ -109,5 +126,7 @@ int specify(char spec, va_list values)
 		_putchar('%');
 		sub_count++;
 	}
-	return (sub_count);
+	_specify.count = sub_count;
+	_specify.flag_true = flag;
+	return (_specify);
 }

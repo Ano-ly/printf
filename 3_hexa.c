@@ -53,7 +53,7 @@ int _malloc3(va_list num_list, int base, char caps)
   * @n: size of memory space
   * @base: conversion base
   * @caps: determines capitalisation of hexadecimal
-
+  *
   * Definition - converts num to binary number and fills buffer
   * Return: count of printed characters
   */
