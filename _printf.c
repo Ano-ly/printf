@@ -105,6 +105,12 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 		if (flag != 0)
 			sub_count += flag;
 	}
+	if (str[spec_loc] == 'h')
+	{
+		flag = shortfunction(spec_loc, str, values);
+		if (flag != 0)
+			sub_count += flag;
+	}
 	if (spec == 'b')
 		sub_count += _malloc(values, 2);
 	if (spec == 'd' || spec == 'i')
