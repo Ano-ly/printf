@@ -66,7 +66,6 @@ int _malloc7(va_list num_list, int base)
 
 	n = 0;
 	count = 0;
-	/*printf("I'm here!");*/
 	num = va_arg(num_list, long int);
 	if (num == 0)
 	{
@@ -89,13 +88,10 @@ int _malloc7(va_list num_list, int base)
 		else
 			break;
 	}
-	/*printf("buffer length: %d ", n);*/
 	buffer = malloc(sizeof(char) * n);
 	if (buffer == NULL)
 		return (0);
 	count += fill_buffer_long(buffer, num, n, base);
-	/*printf("Upper function count: %d\n", count);*/
-
 	return (count);
 }
 
@@ -123,10 +119,8 @@ int fill_buffer_long(char *buffer, long int num, int n, int base)
 
 	while (quotient != 0)
 	{
-		/*printf("num: %li",num);*/
 		quotient = num / base;
 		rem = num % base;
-		/*printf("rem: %ld", rem);*/
 		buffer[i] = rem + '0';
 		num = quotient;
 		i++;
@@ -135,4 +129,3 @@ int fill_buffer_long(char *buffer, long int num, int n, int base)
 	/*printf("Fill buffer long: %d", count);*/
 	return (count);
 }
-
