@@ -49,7 +49,7 @@ int _malloc8(va_list num_list, int base)
   * _malloc9 - allocates suitable memory space for 'short binary string'
   * @num_list: list of arguments
   * @base: conversion base
-  
+  *
   * Definition - determines how many bytes of memory should be
   * allocated, and performs the memory allocation.
   * Return: count of printed characters
@@ -106,7 +106,7 @@ int _malloc9(va_list num_list, int base)
   * @num: number to be converted to binary
   * @n: size of memory space
   * @base: conversion base
-  
+  *
   * Definition - converts num to binary number and fills buffer
   * Return: count of printed characters
   */
