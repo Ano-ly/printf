@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-/*#include <stdio.h>*/
+#include <stdio.h>
 
 /**
  * _malloc6 - allocates suitable memory space for 'long binary string'
@@ -132,6 +132,7 @@ int fill_buffer_long(char *buffer, long int num, int n, int base)
 		i++;
 	}
 	count = print_rev_buffer(buffer, n);
+	/*printf("Fill buffer long: %d", count);*/
 	return (count);
 }
 

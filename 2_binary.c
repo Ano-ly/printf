@@ -42,6 +42,7 @@ int _malloc(va_list num_list, int base)
 	if (buffer == NULL)
 		return (0);
 	count = fill_buffer(buffer, num, n, base);
+	/*printf("Binary count: %d", count);*/
 	return (count);
 }
 
@@ -92,7 +93,7 @@ int _malloc2(va_list num_list, int base)
 	if (buffer == NULL)
 		return (0);
 	count += fill_buffer(buffer, num, n, base);
-	/*printf("Upper function count: %d\n", count);*/
+	/*printf("Upper function with minus count: %d\n", count);*/
 
 	return (count);
 }

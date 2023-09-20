@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
   * _malloc3 - allocates suitable memory space for 'binary string'
@@ -80,5 +81,6 @@ int fill_buffer_hexa(char *buffer, int num, int n, int base, char caps)
 		i++;
 	}
 	count = print_rev_buffer(buffer, n);
+	/*printf("Fillbufferhexa count: %d", count);*/
 	return (count);
 }

@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-/*#include <stdio.h>*/
+#include <stdio.h>
 
 
 /**
@@ -75,14 +75,8 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 	int sub_count = 0;
 	struct _struct _specify;
 
-
 	int flag = 0;
 
-	if (spec == 'c')
-	{
-		_putchar(va_arg(values, int));
-		sub_count++;
-	}
 	if (spec == 's')
 	{
 		value_str = va_arg(values, char *);
@@ -93,15 +87,13 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 			{
 				_putchar(value_str[j]);
 				sub_count++;
-			j++;
+				j++;
 			}
 		}
 	}
 	if (str[spec_loc] == 'l')
 	{
 		flag = longfunction(spec_loc, str, values);
-		/*printf(" /%d /", flag);*/
-
 		if (flag != 0)
 			sub_count += flag;
 	}
@@ -111,28 +103,50 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 		if (flag != 0)
 			sub_count += flag;
 	}
-	if (spec == 'b')
-		sub_count += _malloc(values, 2);
-	if (spec == 'd' || spec == 'i')
-		sub_count += _malloc2(values, 10);
-	if (spec == 'u')
-		sub_count += _malloc(values, 10);
-	if (spec == 'o')
-		sub_count += _malloc(values, 8);
-	if (spec == 'x')
-		sub_count += _malloc3(values, 16, 'a');
-	if (spec == 'X')
-		sub_count += _malloc3(values, 16, 'A');
-	if (spec == 'r')
-		sub_count += rev_string(values);
-	if (spec == 'R')
-		sub_count += rot13(values);
-	if (spec == '%')
-	{
-		_putchar('%');
-		sub_count++;
-	}
+	else if (spec != 's' && spec != 'l' && spec != 'h')
+		sub_count = specify_sub(spec, values);
 	_specify.count = sub_count;
 	_specify.flag_true = flag;
 	return (_specify);
+}
+
+/**
+ * specify_sub - completes specify function
+ * @spec: format specifier
+ * @values: list of arguments
+ * Description - completes function specify
+ * Return: count of printed character
+*/
+
+int specify_sub(char spec, va_list values)
+{
+	int sub_count = 0;
+
+	if (spec == 'c')
+	{
+		_putchar(va_arg(values, int));
+		sub_count = 1;
+	}
+	if (spec == 'b')
+		sub_count = _malloc(values, 2);
+	if (spec == 'd' || spec == 'i')
+		sub_count = _malloc2(values, 10);
+	if (spec == 'u')
+		sub_count = _malloc(values, 10);
+	if (spec == 'o')
+		sub_count = _malloc(values, 8);
+	if (spec == 'x')
+		sub_count = _malloc3(values, 16, 'a');
+	if (spec == 'X')
+		sub_count = _malloc3(values, 16, 'A');
+	if (spec == 'r')
+		sub_count = rev_string(values);
+	if (spec == 'R')
+		sub_count = rot13(values);
+	if (spec == '%')
+	{
+		_putchar('%');
+		sub_count = 1;
+	}
+	return (sub_count);
 }

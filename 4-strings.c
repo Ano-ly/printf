@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+/*#include <stdio.h>*/
 
 /**
  * rev_string - prints a string in reverse
@@ -30,5 +31,6 @@ int rev_string(va_list num_list)
 			n--;
 		}
 	}
+	/*printf("reverse string count: %d", count);*/
 	return (count);
 }

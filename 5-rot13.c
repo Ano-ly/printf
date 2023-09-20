@@ -42,7 +42,10 @@ int rot13(va_list num_list)
 					break;
 				}
 				else if (j == 51)
+				{
 					_putchar(str[i]);
+					count++;
+				}
 			}
 
 

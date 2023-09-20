@@ -19,6 +19,7 @@ typedef struct _struct
 
 int _printf(const char *format, ...);
 _struct specify(const char *str, int spec_loc, char spec, va_list values);
+int specify_sub(char spec, va_list values);
 int _putchar(char c);
 int _malloc(va_list num_list, int base);
 int _malloc2(va_list num_list, int base);
