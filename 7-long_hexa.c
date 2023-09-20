@@ -100,7 +100,7 @@ int longfunction(int spec_loc, const char *str, va_list values)
 	char spec;
 	int sub3_count;
 
-	sub3_count = 0;
+	sub3_count = -1;
 
 	spec = str[spec_loc + 1];
 	/*printf("SPEC: '%c'", spec);*/

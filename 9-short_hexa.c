@@ -107,13 +107,13 @@ int shortfunction(int spec_loc, const char *str, va_list values)
 	/*printf("SPEC: '%c'", spec);*/
 	if (spec == 'd' || spec == 'i')
 		sub3_count = _malloc9(values, 10);
-	if (spec == 'u')
+	else if (spec == 'u')
 		sub3_count = _malloc8(values, 10);
-	if (spec == 'o')
+	else if (spec == 'o')
 		sub3_count = _malloc8(values, 8);
-	if (spec == 'x')
+	else if (spec == 'x')
 		sub3_count = _malloc10(values, 16, 'a');
-	if (spec == 'X')
+	else if (spec == 'X')
 		sub3_count = _malloc10(values, 16, 'A');
 	/*printf("Sub3_count: %d", sub3_count);*/
 	return (sub3_count);

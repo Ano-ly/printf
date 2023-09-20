@@ -26,33 +26,33 @@ int _printf(const char *format, ...)
 	i = 0;
 
 	va_start(values, format);
-
-	if (format != NULL)
+	if (format == NULL)
+		return (-1);
+	while (format[i] != '\0')
 	{
-		while (format[i] != '\0')
+		cursor = format[i];
+
+		if (cursor != '%')
 		{
-			cursor = format[i];
-
-			if (cursor != '%')
-			{
-				_putchar(cursor);
-				cursor++;
-				count++;
-				/*printf("Non-scount: %d\n", count);*/
-			}
-			else
-			{
-				spec = format[i + 1];
-				res_struct = specify(format, i + 1, spec, values);
-				count += res_struct.count;
-				i++;
-				if (res_struct.flag_true != 0)
-					i++;
-			}
-			i++;
+			_putchar(cursor);
+			cursor++;
+			count++;
+			/*printf("Non-scount: %d\n", count);*/
 		}
-
+		else
+		{
+			spec = format[i + 1];
+			res_struct = specify(format, i + 1, spec, values);
+			if (res_struct.count == -1)
+				return (-1);
+			count += res_struct.count;
+			i++;
+			if (res_struct.flag_true != 0)
+				i++;
+		}
+		i++;
 	}
+
 	va_end(values);
 	return (count);
 }
@@ -73,35 +73,36 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 	char *value_str;
 	int j;
 	int sub_count = 0;
+	int flag = 0;
 	struct _struct _specify;
 
-	int flag = 0;
+	_specify.count = -1;
+	_specify.flag_true = 0;
 
 	if (spec == 's')
 	{
 		value_str = va_arg(values, char *);
-		if (value_str != NULL)
+		if (value_str == NULL)
+			return (_specify);
+		j = 0;
+		while (value_str[j] != '\0')
 		{
-			j = 0;
-			while (value_str[j] != '\0')
-			{
-				_putchar(value_str[j]);
-				sub_count++;
-				j++;
-			}
+			_putchar(value_str[j]);
+			sub_count++;
+			j++;
 		}
+
 	}
-	if (str[spec_loc] == 'l')
+	else if (str[spec_loc] == 'l')
 	{
 		flag = longfunction(spec_loc, str, values);
 		if (flag != 0)
-			sub_count += flag;
+			sub_count = flag;
 	}
-	if (str[spec_loc] == 'h')
+	else if (str[spec_loc] == 'h')
 	{
 		flag = shortfunction(spec_loc, str, values);
-		if (flag != 0)
-			sub_count += flag;
+		sub_count = flag;
 	}
 	else if (spec != 's' && spec != 'l' && spec != 'h')
 		sub_count = specify_sub(spec, values);
