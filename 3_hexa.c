@@ -18,7 +18,7 @@ int _malloc3(va_list num_list, int base, char caps)
 	int n;
 	unsigned int num;
 	char *buffer;
-	unsigned int pow;
+	unsigned long int pow;
 	int i;
 	int count;
 

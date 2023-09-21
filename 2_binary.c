@@ -17,7 +17,7 @@ int _malloc(va_list num_list, int base)
 	int n;
 	unsigned int num;
 	char *buffer;
-	unsigned int pow;
+	unsigned long int pow;
 	int i;
 	int count;
 
@@ -61,13 +61,14 @@ int _malloc2(va_list num_list, int base)
 	int n;
 	int num;
 	char *buffer;
-	int pow;
+	long int pow;
 	int i;
 	int count;
 
 	n = 0;
 	count = 0;
 	num = va_arg(num_list, int);
+	/*printf("/NUm: %d/", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
@@ -93,7 +94,7 @@ int _malloc2(va_list num_list, int base)
 	if (buffer == NULL)
 		return (0);
 	count += fill_buffer(buffer, num, n, base);
-	/*printf("Upper function with minus count: %d\n", count);*/
+	/*printf("/Upper function with minus count: %d\n/", count);*/
 
 	return (count);
 }
@@ -123,7 +124,9 @@ int fill_buffer(char *buffer, int num, int n, int base)
 	while (quotient != 0)
 	{
 		quotient = num / base;
+		/*printf("/Quotient: %d/", quotient);*/
 		rem = num % base;
+		/*printf("/remainder: %d/", rem);*/
 		buffer[i] = rem + '0';
 		num = quotient;
 		i++;
@@ -157,6 +160,6 @@ int print_rev_buffer(char *buffer, int n)
 		sub2_count++;
 	}
 	free(buffer);
-	/*printf("sub2_count: %d\n", sub2_count);*/
+	/*printf("/sub2_count: %d\n/", sub2_count);*/
 	return (sub2_count);
 }
