@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-/*#include <stdio.h>*/
+#include <stdio.h>
 
 /**
  * _malloc - allocates suitable memory space for 'binary string'
@@ -64,20 +64,22 @@ int _malloc2(va_list num_list, int base)
 	long int pow;
 	int i;
 	int count;
+	long int num_long;
 
 	n = 0;
 	count = 0;
 	num = va_arg(num_list, int);
+	num_long = num;
 	/*printf("/NUm: %d/", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	if (num < 0)
+	if (num_long < 0)
 	{
 		_putchar('-');
-		num = -num;
+		num_long *= -1;
 		count++;
 	}
 	while (1)
@@ -85,7 +87,7 @@ int _malloc2(va_list num_list, int base)
 		pow = 1;
 		for (i = 0; i < n; i++)
 			pow *= base;
-		if (pow <= num)
+		if (pow <= num_long)
 			n++;
 		else
 			break;
@@ -93,7 +95,7 @@ int _malloc2(va_list num_list, int base)
 	buffer = malloc(sizeof(char) * n);
 	if (buffer == NULL)
 		return (0);
-	count += fill_buffer(buffer, num, n, base);
+	count += fill_buffer(buffer, num_long, n, base);
 	/*printf("/Upper function with minus count: %d\n/", count);*/
 
 	return (count);
@@ -111,7 +113,7 @@ int _malloc2(va_list num_list, int base)
  * Return: count of printed characters
 */
 
-int fill_buffer(char *buffer, int num, int n, int base)
+int fill_buffer(char *buffer, long int num, int n, int base)
 {
 	int quotient;
 	int rem;
