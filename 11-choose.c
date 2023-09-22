@@ -72,16 +72,16 @@ int choose2(int spec_loc, const char *str, va_list values)
 
 int choose3(int spec_loc, const char *str, va_list values)
 {
-        char spec;
-        int sub6_count;
+	char spec;
+	int sub6_count;
 
-        sub6_count = -1;
+	sub6_count = -1;
 
-        spec = str[spec_loc + 1];
-        /*printf("SPEC: '%c'", spec);*/
-        if (spec == 'd' || spec == 'i')
-                sub6_count = _malloc14(values, 10);
-        /*printf("Sub6_count: %d", sub6_count);*/
-        return (sub6_count);
+	spec = str[spec_loc + 1];
+	/*printf("SPEC: '%c'", spec);*/
+	if (spec == 'd' || spec == 'i')
+		sub6_count = _malloc14(values, 10);
+	/*printf("Sub6_count: %d", sub6_count);*/
+	return (sub6_count);
 
 }

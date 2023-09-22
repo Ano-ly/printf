@@ -119,50 +119,51 @@ int _malloc12(va_list num_list, int base)
 
 int _malloc14(va_list num_list, int base)
 {
-        int n;
-        int num;
-        char *buffer;
-        long int pow;
-        int i;
-        int count;
-        long int num_long;
+	int n;
+	int num;
+	char *buffer;
+	long int pow;
+	int i;
+	int count;
+	long int num_long;
 
-        n = 0;
-        count = 0;
-        num = va_arg(num_list, int);
-        num_long = num;
-        /*printf("/NUm: %d/", num);*/
-        if (num == 0)
-        {
-                _putchar('0');
-                return (1);
-        }
-        if (num_long > 0)
-                _putchar(' ');
-        if (num_long < 0)
-        {
-                _putchar('-');
-                num_long *= -1;
-                count++;
-        }
-        while (1)
-        {
-                pow = 1;
-                for (i = 0; i < n; i++)
-                        pow *= base;
-                if (pow <= num_long)
-                        n++;
-                else
-                        break;
-        }
-        buffer = malloc(sizeof(char) * n);
-        if (buffer == NULL)
-                return (0);
-        count += fill_buffer(buffer, num_long, n, base);
-        /*printf("/Upper function with minus count: %d\n/", count);*/
+	n = 0;
+	count = 0;
+	num = va_arg(num_list, int);
+	num_long = num;
+	/*printf("/NUm: %d/", num);*/
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (num_long > 0)
+		_putchar(' ');
+	if (num_long < 0)
+	{
+		_putchar('-');
+		num_long *= -1;
+		count++;
+	}
+	while (1)
+	{
+		pow = 1;
+		for (i = 0; i < n; i++)
+			pow *= base;
+		if (pow <= num_long)
+			n++;
+		else
+			break;
+	}
+	buffer = malloc(sizeof(char) * n);
+	if (buffer == NULL)
+		return (0);
+	count += fill_buffer(buffer, num_long, n, base);
+	/*printf("/Upper function with minus count: %d\n/", count);*/
 
-        return (count);
+	return (count);
 }
+
 /**
   * _malloc13 - allocates suitable memory space for 'hexadecimal string'
   * with # flag
@@ -176,21 +177,21 @@ int _malloc14(va_list num_list, int base)
 
 int _malloc13(va_list num_list, int base, char caps)
 {
-        int n;
-        unsigned long int num;
-        char *buffer;
-        unsigned long int pow;
-        int i;
-        int count;
+	int n;
+	unsigned long int num;
+	char *buffer;
+	unsigned long int pow;
+	int i;
+	int count;
 
-        n = 0;
-        num = va_arg(num_list, unsigned int);
-        /*printf("NUM: %ld", num);*/
-        if (num == 0)
-        {
-                _putchar('0');
-                return (1);
-        }
+	n = 0;
+	num = va_arg(num_list, unsigned int);
+	/*printf("NUM: %ld", num);*/
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (base == 16)
 		_putchar('0');
 	if (caps == 'A')
