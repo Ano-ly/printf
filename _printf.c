@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 
 /**
@@ -99,10 +99,7 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 		sub_count = flag;
 	}
 	else
-	{
 		sub_count = specify_sub(str, spec_loc, spec, values);
-		printf("Inside else loop sub_count, %d", sub_count);
-	}
 	_specify.count = sub_count;
 	_specify.flag_true = flag;
 	return (_specify);
