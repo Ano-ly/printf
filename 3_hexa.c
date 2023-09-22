@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 /**
   * _malloc3 - allocates suitable memory space for 'binary string'
@@ -24,7 +24,7 @@ int _malloc3(va_list num_list, int base, char caps)
 
 	n = 0;
 	num = va_arg(num_list, unsigned int);
-	printf("NUM: %ld", num);
+	/*printf("NUM: %ld", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
@@ -36,7 +36,7 @@ int _malloc3(va_list num_list, int base, char caps)
 		for (i = 0; i < n; i++)
 		{
 			pow *= base;
-			printf("pow: %ld", pow);
+			/*printf("pow: %ld", pow);*/
 		}
 		if (pow <= num)
 			n++;
@@ -76,9 +76,9 @@ int fill_buffer_hexa(char *buffer, long int num, int n, int base, char caps)
 	while (quotient != 0)
 	{
 		quotient = num / base;
-		printf("Quotient: %ld", quotient);
+		/*printf("Quotient: %ld", quotient);*/
 		rem = num % base;
-		printf("REm: %d", rem);
+		/*printf("REm: %d", rem);*/
 		if (rem > 9)
 			buffer[i] = caps + (rem - 10);
 		else
