@@ -28,9 +28,6 @@ int _malloc(va_list num_list, int base)
 		_putchar('0');
 		return (1);
 	}
-	if (base == 8)
-		_putchar(48);
-
 	while (1)
 	{
 		pow = 1;
