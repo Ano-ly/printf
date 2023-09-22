@@ -47,7 +47,6 @@ int fill_buffer_short(char *buffer, short int num, int n, int base);
 int shortfunction(int spec_loc, const char *str, va_list values);
 int _malloc10(va_list num_list, int base, char caps);
 
-int specify_flag(const char *str, int spec_loc, char spec, va_list values);
 int choose1(int spec_loc, const char *str, va_list values);
 int choose2(int spec_loc, const char *str, va_list values);
 int choose3(int spec_loc, const char *str, va_list values);

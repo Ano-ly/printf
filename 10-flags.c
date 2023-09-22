@@ -14,24 +14,23 @@
 
 int _malloc11(va_list num_list, int base)
 {
+	int n;
+	unsigned int num;
 	char *buffer;
 	unsigned long int pow;
 	int i;
+	int count;
 
-	int n = 0;
-	int count = 0;
-	unsigned int num = va_arg(num_list, unsigned int);
-
+	n = 0;
+	num = va_arg(num_list, unsigned int);
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 	if (base == 8)
-	{
 		_putchar(48);
-		count++;
-	}
+
 	while (1)
 	{
 		pow = 1;
@@ -45,7 +44,7 @@ int _malloc11(va_list num_list, int base)
 	buffer = malloc(sizeof(char) * n);
 	if (buffer == NULL)
 		return (0);
-	count += fill_buffer(buffer, num, n, base);
+	count = fill_buffer(buffer, num, n, base);
 	/*printf("Binary count: %d", count);*/
 	return (count);
 }
@@ -63,25 +62,26 @@ int _malloc11(va_list num_list, int base)
 
 int _malloc12(va_list num_list, int base)
 {
+	int n;
+	int num;
 	char *buffer;
 	long int pow;
 	int i;
+	int count;
+	long int num_long;
 
-	int n = 0;
-	int count = 0;
-	long int num_long = num;
-	int num = va_arg(num_list, int);
-
+	n = 0;
+	count = 0;
+	num = va_arg(num_list, int);
+	num_long = num;
+	/*printf("/NUm: %d/", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 	if (num_long > 0)
-	{
 		_putchar('+');
-		count++;
-	}
 	if (num_long < 0)
 	{
 		_putchar('-');
@@ -102,9 +102,10 @@ int _malloc12(va_list num_list, int base)
 	if (buffer == NULL)
 		return (0);
 	count += fill_buffer(buffer, num_long, n, base);
+	/*printf("/Upper function with minus count: %d\n/", count);*/
+
 	return (count);
 }
-
 /**
  * _malloc14 - allocates suitable memory space for 'ternary string' with
  * space flag
@@ -118,25 +119,26 @@ int _malloc12(va_list num_list, int base)
 
 int _malloc14(va_list num_list, int base)
 {
+	int n;
+	int num;
 	char *buffer;
 	long int pow;
 	int i;
+	int count;
+	long int num_long;
 
-	int n = 0;
-	int count = 0;
-	int num = va_arg(num_list, int);
-	long int num_long = num;
-
+	n = 0;
+	count = 0;
+	num = va_arg(num_list, int);
+	num_long = num;
+	/*printf("/NUm: %d/", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 	if (num_long > 0)
-	{
 		_putchar(' ');
-		count++;
-	}
 	if (num_long < 0)
 	{
 		_putchar('-');
@@ -157,6 +159,8 @@ int _malloc14(va_list num_list, int base)
 	if (buffer == NULL)
 		return (0);
 	count += fill_buffer(buffer, num_long, n, base);
+	/*printf("/Upper function with minus count: %d\n/", count);*/
+
 	return (count);
 }
 
@@ -181,36 +185,35 @@ int _malloc13(va_list num_list, int base, char caps)
 	int count;
 
 	n = 0;
-	count = 0;
 	num = va_arg(num_list, unsigned int);
+	/*printf("NUM: %ld", num);*/
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	_putchar('0');
-	count++;
+	if (base == 16)
+		_putchar('0');
 	if (caps == 'A')
 		_putchar('X');
 	else if (caps == 'a')
 		_putchar('x');
-	count++;
-	while (1)
-	{
-		pow = 1;
-		for (i = 0; i < n; i++)
-		{
-			pow *= base;
-			/*printf("pow: %ld", pow);*/
-		}
-		if (pow <= num)
-			n++;
-		else
-			break;
-	}
-	buffer = malloc(sizeof(char) * n);
-	if (buffer == NULL)
-		return (0);
-	count += fill_buffer_hexa(buffer, num, n, base, caps);
-	return (count);
+        while (1)
+        {
+                pow = 1;
+                for (i = 0; i < n; i++)
+                {
+                        pow *= base;
+                        /*printf("pow: %ld", pow);*/
+                }
+                if (pow <= num)
+                        n++;
+                else
+                        break;
+        }
+        buffer = malloc(sizeof(char) * n);
+        if (buffer == NULL)
+                return (0);
+        count = fill_buffer_hexa(buffer, num, n, base, caps);
+        return (count);
 }
