@@ -107,6 +107,7 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 	else if (spec != 's' && spec != 'l' && spec != 'h')
 		sub_count = specify_sub(str, spec_loc, spec, values);
 	_specify.count = sub_count;
+	flag = sub_count;
 	_specify.flag_true = flag;
 	return (_specify);
 }
