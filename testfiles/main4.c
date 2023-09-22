@@ -7,7 +7,7 @@ int main(void)
 	int count;
 
 	/*_printf("%i - %i = %i\n", 1024, 2048, -1024);*/
-	count = _printf("%x", UINT_MAX);
+	count = _printf("%i", INT_MAX);
 	printf("Count: %i", count);
 	/*_printf("%x", UINT_MAX);*/
 	/*_printf("result: %i:", 0);*/
