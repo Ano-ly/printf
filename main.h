@@ -19,7 +19,7 @@ typedef struct _struct
 
 int _printf(const char *format, ...);
 _struct specify(const char *str, int spec_loc, char spec, va_list values);
-int specify_sub(char spec, va_list values);
+int specify_sub(const char *str, int spec_loc, char spec, va_list values);
 int _putchar(char c);
 int _malloc(va_list num_list, int base);
 int _malloc2(va_list num_list, int base);
@@ -47,4 +47,12 @@ int fill_buffer_short(char *buffer, short int num, int n, int base);
 int shortfunction(int spec_loc, const char *str, va_list values);
 int _malloc10(va_list num_list, int base, char caps);
 
+int choose1(int spec_loc, const char *str, va_list values);
+int choose2(int spec_loc, const char *str, va_list values);
+int choose3(int spec_loc, const char *str, va_list values);
+
+int _malloc11(va_list num_list, int base);
+int _malloc12(va_list num_list, int base);
+int _malloc14(va_list num_list, int base);
+int _malloc13(va_list num_list, int base, char caps);
 #endif

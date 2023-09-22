@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 
 /**
@@ -105,8 +105,9 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 		sub_count = flag;
 	}
 	else if (spec != 's' && spec != 'l' && spec != 'h')
-		sub_count = specify_sub(spec, values);
+		sub_count = specify_sub(str, spec_loc, spec, values);
 	_specify.count = sub_count;
+	flag = sub_count;
 	_specify.flag_true = flag;
 	return (_specify);
 }
@@ -119,10 +120,28 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
  * Return: count of printed character
 */
 
-int specify_sub(char spec, va_list values)
+int specify_sub(const char *str, int spec_loc, char spec, va_list values)
 {
+	int flag;
 	int sub_count = 0;
 
+	flag = 0;
+
+	if (spec == '+')
+	{
+		flag = choose1(spec_loc, str, values);
+                sub_count = flag;
+	}
+	if (spec == ' ')
+	{
+		flag = choose3(spec_loc, str, values);
+                sub_count = flag;
+	}
+	if (spec == '#')
+	{
+		flag = choose2(spec_loc, str, values);
+                sub_count = flag;
+	}
 	if (spec == 'c')
 	{
 		_putchar(va_arg(values, int));
@@ -149,5 +168,6 @@ int specify_sub(char spec, va_list values)
 		_putchar('%');
 		sub_count = 1;
 	}
+	/*printf("Sub count: %d", sub_count);*/
 	return (sub_count);
 }
