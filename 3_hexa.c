@@ -16,7 +16,7 @@
 int _malloc3(va_list num_list, int base, char caps)
 {
 	int n;
-	unsigned int num;
+	unsigned long int num;
 	char *buffer;
 	unsigned long int pow;
 	int i;
@@ -24,6 +24,7 @@ int _malloc3(va_list num_list, int base, char caps)
 
 	n = 0;
 	num = va_arg(num_list, unsigned int);
+	printf("NUM: %ld", num);
 	if (num == 0)
 	{
 		_putchar('0');
@@ -33,7 +34,10 @@ int _malloc3(va_list num_list, int base, char caps)
 	{
 		pow = 1;
 		for (i = 0; i < n; i++)
+		{
 			pow *= base;
+			printf("pow: %ld", pow);
+		}
 		if (pow <= num)
 			n++;
 		else
@@ -59,9 +63,9 @@ int _malloc3(va_list num_list, int base, char caps)
   * Return: count of printed characters
   */
 
-int fill_buffer_hexa(char *buffer, int num, int n, int base, char caps)
+int fill_buffer_hexa(char *buffer, long int num, int n, int base, char caps)
 {
-	int quotient;
+	long int quotient;
 	int rem;
 	int i;
 	int count;
@@ -72,7 +76,9 @@ int fill_buffer_hexa(char *buffer, int num, int n, int base, char caps)
 	while (quotient != 0)
 	{
 		quotient = num / base;
+		printf("Quotient: %ld", quotient);
 		rem = num % base;
+		printf("REm: %d", rem);
 		if (rem > 9)
 			buffer[i] = caps + (rem - 10);
 		else
