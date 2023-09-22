@@ -69,22 +69,23 @@ int _malloc12(va_list num_list, int base)
 
 	int n = 0;
 	int count = 0;
-	long int num = va_arg(num_list, int);
+	long int num_long = num;
+	int num = va_arg(num_list, int);
 
 	if (num == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	if (num > 0)
+	if (num_long > 0)
 	{
 		_putchar('+');
 		count++;
 	}
-	if (num < 0)
+	if (num_long < 0)
 	{
 		_putchar('-');
-		num *= -1;
+		num_long *= -1;
 		count++;
 	}
 	while (1)
@@ -92,7 +93,7 @@ int _malloc12(va_list num_list, int base)
 		pow = 1;
 		for (i = 0; i < n; i++)
 			pow *= base;
-		if (pow <= num)
+		if (pow <= num_long)
 			n++;
 		else
 			break;
@@ -100,7 +101,7 @@ int _malloc12(va_list num_list, int base)
 	buffer = malloc(sizeof(char) * n);
 	if (buffer == NULL)
 		return (0);
-	count += fill_buffer(buffer, num, n, base);
+	count += fill_buffer(buffer, num_long, n, base);
 	return (count);
 }
 
