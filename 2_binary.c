@@ -28,6 +28,9 @@ int _malloc(va_list num_list, int base)
 		_putchar('0');
 		return (1);
 	}
+	if (base == 8)
+		_putchar(48);
+
 	while (1)
 	{
 		pow = 1;
@@ -97,6 +100,7 @@ int _malloc2(va_list num_list, int base)
 		return (0);
 	count += fill_buffer(buffer, num_long, n, base);
 	/*printf("/Upper function with minus count: %d\n/", count);*/
+
 	return (count);
 }
 

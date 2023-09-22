@@ -113,8 +113,6 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 
 /**
  * specify_sub - completes specify function
- * str: format string
- * @spec_loc: location of specifier
  * @spec: format specifier
  * @values: list of arguments
  * Description - completes function specify
@@ -131,17 +129,17 @@ int specify_sub(const char *str, int spec_loc, char spec, va_list values)
 	if (spec == '+')
 	{
 		flag = choose1(spec_loc, str, values);
-		sub_count = flag;
+                sub_count = flag;
 	}
 	if (spec == ' ')
 	{
 		flag = choose3(spec_loc, str, values);
-		sub_count = flag;
+                sub_count = flag;
 	}
 	if (spec == '#')
 	{
 		flag = choose2(spec_loc, str, values);
-		sub_count = flag;
+                sub_count = flag;
 	}
 	if (spec == 'c')
 	{
