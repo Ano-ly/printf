@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-#include <stdio.h>
+/*#include <stdio.h>*/
 
 /**
  * _malloc - allocates suitable memory space for 'binary string'
