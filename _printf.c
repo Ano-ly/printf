@@ -43,8 +43,8 @@ int _printf(const char *format, ...)
 		{
 			spec = format[i + 1];
 			res_struct = specify(format, i + 1, spec, values);
-			if (res_struct.count == -1)
-				return (-1);
+			/*if (res_struct.count == -1)*/
+				/*return (-1);*/
 			count += res_struct.count;
 			i++;
 			if (res_struct.flag_true != 0)
@@ -83,7 +83,10 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 	{
 		value_str = va_arg(values, char *);
 		if (value_str == NULL)
+		{
+			print_null();
 			return (_specify);
+		}
 		j = 0;
 		while (value_str[j] != '\0')
 		{
@@ -150,4 +153,14 @@ int specify_sub(char spec, va_list values)
 		sub_count = 1;
 	}
 	return (sub_count);
+}
+
+void print_null(void)
+{
+	_putchar(40);
+	_putchar('n');
+	_putchar('u');
+	_putchar('l');
+	_putchar('l');
+	_putchar(41);
 }

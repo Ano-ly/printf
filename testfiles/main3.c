@@ -27,7 +27,7 @@ int main(void)
 	printf("\nCOUNT: %d\n", count);
 	count = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", "know");
 	printf("\nCOUNT: %d\n", count);
-	count = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	count = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	printf("\nCOUNT: %d\n", count);
 	count = printf("%c%cth %s%s a%cg%s: Y%sou %s no%ching%s Snow.%c", 'W', 'i', "some ", "more", 'r', "s", "", "know", 't', ", Jon", '\n');
 	printf("\nCOUNT: %d\n", count);

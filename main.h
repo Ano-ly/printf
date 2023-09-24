@@ -47,4 +47,6 @@ int fill_buffer_short(char *buffer, short int num, int n, int base);
 int shortfunction(int spec_loc, const char *str, va_list values);
 int _malloc10(va_list num_list, int base, char caps);
 
+void print_null(void);
+
 #endif
