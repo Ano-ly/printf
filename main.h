@@ -42,7 +42,8 @@ int longfunction(int spec_loc, const char *str, va_list values);
 
 int _malloc8(va_list num_list, int base);
 int _malloc9(va_list num_list, int base);
-int fill_buffer_s_hexa(char *buffer, short int num, int n, int base, char caps);
+int fill_buffer_s_hexa(char *buffer, short int num, int n, int base,
+char caps);
 int fill_buffer_short(char *buffer, short int num, int n, int base);
 int shortfunction(int spec_loc, const char *str, va_list values);
 int _malloc10(va_list num_list, int base, char caps);

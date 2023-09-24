@@ -74,10 +74,7 @@ _struct specify(const char *str, int spec_loc, char spec, va_list values)
 	int j;
 	int sub_count = 0;
 	int flag = 0;
-	struct _struct _specify;
-
-	_specify.count = -1;
-	_specify.flag_true = 0;
+	struct _struct _specify = {-1, 0};
 
 	if (spec == 's')
 	{
@@ -154,6 +151,12 @@ int specify_sub(char spec, va_list values)
 	}
 	return (sub_count);
 }
+
+/**
+ * print_null - prints (null)
+ * Definition - runs when argument to s is null
+ * Return: void
+*/
 
 void print_null(void)
 {

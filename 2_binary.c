@@ -97,7 +97,6 @@ int _malloc2(va_list num_list, int base)
 		return (0);
 	count += fill_buffer(buffer, num_long, n, base);
 	/*printf("/Upper function with minus count: %d\n/", count);*/
-
 	return (count);
 }
 
